@@ -1,0 +1,20 @@
+# 1. Ignorar todo por defecto (lo que no está explícitamente añadido, no se toca)
+/*
+
+# 2. Permitir solo las carpetas/archivos que realmente quieres gestionar
+!/.config/
+!/.config/kitty/
+!/.config/fish/
+!/.config/waybar/
+!/.config/hypr/
+
+# 3. Ignorar explícitamente archivos sensibles dentro de las carpetas permitidas
+# Ejemplo: si tienes un archivo de configuración de red con contraseñas
+.config/wifi-secrets.conf
+.config/db_credentials.env
+
+# 4. Ignorar siempre archivos temporales o de sistema
+.DS_Store
+*~
+*.swp
+*.bak
