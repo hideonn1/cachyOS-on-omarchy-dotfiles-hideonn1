@@ -18,12 +18,12 @@ Este repositorio utiliza un **directorio Git bare** para gestionar los archivos 
 git clone --bare git@github.com:hideonn1/cachyOS-on-omarchy-dotfiles-hideonn1.git $HOME/.dotfiles
 ```
 
-# Definir el alias de gestión
+### Definir el alias de gestión
 ```bash
 alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 ```
 
-# Desplegar archivos
+### Desplegar archivos
 ```bash
 config checkout
 ```
