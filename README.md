@@ -1,5 +1,9 @@
 # Dotfiles - CachyOS/Arch Linux Setup
 
+<p align="center">
+    <img src="./assets/banner-principal.png" alt="CachyOS Hyprland Setup" width="900">
+</p>
+
 Mi configuración personal de entorno de trabajo para **Arch Linux / CachyOS + Omarchy**, enfocada en rendimiento, seguridad y estética personalizada.
 
 ## 🛠️ Tecnologías y Herramientas
@@ -11,6 +15,25 @@ Mi configuración personal de entorno de trabajo para **Arch Linux / CachyOS + O
 * **Editor:** Zed (con integración Vim)
 * **Gestión de Red:** `iproute2` y utilidades de seguridad.
 
+## 📸 Demostración visual
+
+### Selector de entorno estético (Rofi grid + previsualizaciones)
+Integración personalizada para previsualizar los fondos disponibles en una cuadrícula dinámica antes de aplicarlos
+<p align="center">
+    <img src="./assets/rofi-selector.png" alt="Rofi Wallpaper Selector" width="850">
+</p>
+
+### Paletas de colores dinámicas (Pywal Integration)
+El script `cambiar_fondo.sh` automatiza la regeneración completa del entorno, adaptando los bordes de Hyprland, Waybar, Kitty y herramientas del sistema en cuestión de milisegundos según el esquema del wallpaper:
+
+| Entorno temático rojo (Claire Redfield, RE:Code Verónica Remake) | Entorno temático morado (Digital Art) |
+| :---: | :---: |
+| <img src="./assets/sistema-rojo.png" width="420"> | <img src="./assets/sistema-morado.png" width="420"> |
+
+### Especificaciones del entorno
+<p align="center">
+    <img src="./assets/system-spec.png" alt="System Specifications" width="850">
+</p>
 ## 🚀 Instalación
 Este repositorio utiliza un **directorio Git bare** para gestionar los archivos de configuración directamente en `$HOME` sin necesidad de enlaces simbólicos.
 
