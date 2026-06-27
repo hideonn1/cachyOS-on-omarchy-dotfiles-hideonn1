@@ -1,0 +1,98 @@
+configuration {
+    show-icons:                  true;
+    dmenu-display-format:        "{name}";
+}
+
+/* Importar la paleta nativa de Pywal */
+@import "~/.cache/wal/colors-rofi-dark.rasi"
+
+window {
+    transparency:                "real";
+    location:                    center;
+    anchor:                      center;
+    fullscreen:                  false;
+    width:                       850px;
+    enabled:                     true;
+    border:                      2px;
+    border-color:                @selected-normal-background; /* Corregido */
+    border-radius:               12px;
+    background-color:            rgba(15, 15, 23, 0.88);
+}
+
+mainbox {
+    enabled:                     true;
+    spacing:                     10px;
+    padding:                     20px;
+    background-color:            transparent;
+    children:                    [ "inputbar", "listview" ];
+}
+
+inputbar {
+    enabled:                     true;
+    background-color:            rgba(255, 255, 255, 0.05);
+    border-radius:               8px;
+    padding:                     10px;
+    text-color:                  @foreground;
+    children:                    [ "prompt", "entry" ];
+}
+
+prompt {
+    background-color:            transparent;
+    text-color:                  @selected-normal-background; /* Corregido */
+    margin:                      0px 10px 0px 0px;
+}
+
+entry {
+    background-color:            transparent;
+    text-color:                  @foreground;
+    cursor:                      text;
+    placeholder:                 "Buscar entorno...";
+    placeholder-color:           rgba(255, 255, 255, 0.3);
+}
+
+listview {
+    enabled:                     true;
+    columns:                     3;
+    lines:                       2;
+    cycle:                       true;
+    dynamic:                     true;
+    scrollbar:                   false;
+    layout:                      vertical;
+    reverse:                     false;
+    fixed-height:                true;
+    fixed-columns:               true;
+    spacing:                     15px;
+    background-color:            transparent;
+}
+
+element {
+    enabled:                     true;
+    orientation:                 vertical;
+    border-radius:               10px;
+    padding:                     15px;
+    background-color:            transparent;
+    text-color:                  @foreground;
+    cursor:                      pointer;
+}
+
+element selected.normal {
+    background-color:            rgba(255, 255, 255, 0.1);
+    border:                      1px;
+    border-color:                @selected-normal-background; /* Corregido */
+    text-color:                  @selected-normal-background; /* Corregido */
+}
+
+element-icon {
+    background-color:            transparent;
+    size:                        130px;
+    cursor:                      inherit;
+    horizontal-align:            0.5;
+}
+
+element-text {
+    background-color:            transparent;
+    text-color:                  inherit;
+    cursor:                      inherit;
+    horizontal-align:            0.5;
+    vertical-align:              0.5;
+}
