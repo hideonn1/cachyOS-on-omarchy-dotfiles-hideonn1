@@ -1,9 +1,11 @@
 # Dotfiles - CachyOS/Arch Linux Setup
 
-Mi configuración personal de entorno de trabajo para **Arch Linux / CachyOS**, enfocada en rendimiento, seguridad y estética personalizada.
+Mi configuración personal de entorno de trabajo para **Arch Linux / CachyOS + Omarchy**, enfocada en rendimiento, seguridad y estética personalizada.
 
 ## 🛠️ Tecnologías y Herramientas
-* **WM:** Hyprland
+* **Base OS:** CachyOS (Arch Linux) — Instalación mínima por CLI (sin un entorno de escritorio)
+* **Framework / Base:** Omarchy
+* **WM:** Hyprland (Wayland)
 * **Barra:** Waybar (con configuración personalizada y glifos especiales)
 * **Terminal:** kitty + fish
 * **Editor:** Zed (con integración Vim)
