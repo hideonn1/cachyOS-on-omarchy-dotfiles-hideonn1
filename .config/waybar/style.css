@@ -1,141 +1,132 @@
-@import "../omarchy/current/theme/waybar.css";
-@import url("file:///home/hideon/.cache/wal/colors-waybar.css");
+@import url("../../.cache/wal/colors-waybar.css");
 
 /* 
-   Eliminamos el bloque '*' agresivo para que Omarchy 
-   vuelva a controlar los tamaños y espaciados por defecto.
+   1. CONTENEDOR PRINCIPAL
 */
-
-/* Aplicamos el fondo y texto de Pywal respetando la estructura base */
-window#waybar {
-  background-color: @background;
-  color: @foreground;
-  font-family: 'JetBrainsMono Nerd Font';
-  font-size: 16px;
+window#waybar,
+#waybar,
+box,
+widget {
+  background-color: rgba(0, 0, 0, 0);
+  background-image: none;
+  border: none;
+  box-shadow: none;
 }
 
-.modules-left {
-  margin-left: 8px;
+/* 
+   2. EFECTO CÁPSULA (PILL STYLING)
+   Mantenemos la base de tus pastillas independientes.
+*/
+#workspaces,
+#clock,
+#cpu,
+#battery,
+#pulseaudio,
+#network,
+#bluetooth,
+#tray,
+#custom-omarchy,
+#custom-update,
+#custom-weather,
+#custom-spotify,
+#custom-vpn,
+#custom-expand-icon,
+#custom-screenrecording-indicator,
+#custom-idle-indicator,
+#custom-notification-silencing-indicator,
+#custom-voxtype {
+  background-color: rgba(26, 27, 38, 0.85);
+  border: 1.5px solid @color1;
+  border-radius: 10px;
+  margin: 4px 5px;
+  padding: 2px 14px;
 }
 
-.modules-right {
-  margin-right: 8px;
+/* 
+   3. REPARACIÓN DEL BOTÓN EXPANSOR Y CENTRADO DE ICONOS (MÓDULOS DERECHA)
+   Fijamos dimensiones exactas y paddings simétricos por separado para 
+   asegurar que queden perfectamente en medio sin romper la interactividad.
+*/
+#custom-expand-icon {
+  min-width: 20px;
+  padding: 2px 12px;
 }
 
-/* Áreas de trabajo */
+#bluetooth {
+  min-width: 20px;
+  padding: 2px 12px;
+}
+
+#network {
+  min-width: 22px;
+  padding: 2px 11px;
+}
+
+#pulseaudio {
+  min-width: 22px;
+  padding: 2px 11px;
+}
+
+#cpu {
+  min-width: 20px;
+  padding: 2px 12px;
+}
+
+#custom-weather {
+  min-width: 22px;
+  padding: 2px 12px;
+}
+
+/* Limpieza de márgenes extra que causaban los desfases de la imagen */
+#clock label,
+#cpu label,
+#battery label,
+#pulseaudio label,
+#network label,
+#bluetooth label,
+#custom-weather label,
+#custom-spotify label,
+#custom-vpn label,
+#custom-expand-icon label,
+#tray image,
+#tray label {
+  padding: 0;
+  margin: 0;
+}
+
+.modules-left { margin-left: 8px; }
+.modules-right { margin-right: 8px; }
+
+/* 
+   4. ÁREAS DE TRABAJO (WORKSPACES)
+*/
 #workspaces button {
-  all: initial;
-  padding: 0 6px;
-  margin: 0 1.5px;
-  min-width: 9px;
+  padding: 0 7px;   
+  margin: 0 2px;
   color: @foreground;
 }
-
 #workspaces button.active {
-  color: @color2; 
+  color: @color2;
   font-weight: bold;
 }
-
 #workspaces button.empty {
   opacity: 0.5;
 }
 
-/* Devolvemos los márgenes originales a tus módulos */
-#cpu,
-#battery,
-#pulseaudio,
-#custom-omarchy,
-#custom-update {
-  min-width: 12px;
-  margin: 0 7.5px;
-}
-
-#tray {
-  margin-right: 16px;
-}
-
-#bluetooth {
-  margin-right: 17px;
-}
-
-#network {
-  margin-right: 13px;
-}
-
-#custom-expand-icon {
-  margin-right: 18px;
-}
-
+/* 
+   5. COMPONENTES EXTRA
+*/
 tooltip {
   padding: 2px;
   background-color: @background;
   color: @foreground;
   border: 1px solid @color1;
 }
-
-#custom-update {
-  font-size: 10px;
-}
-
-#clock {
-  margin-left: 8.75px;
-  color: @color1; /* El reloj mantiene su color dinámico acentuado */
-}
-
-#custom-weather {
-  margin-left: 7.5px;
-  margin-right: 7.5px;
-}
-
-#custom-weather.unavailable {
-  min-width: 0;
-  margin: 0;
-  padding: 0;
-}
-
-.hidden {
-  opacity: 0;
-}
-
-#custom-screenrecording-indicator,
-#custom-idle-indicator,
-#custom-notification-silencing-indicator {
-  min-width: 12px;
-  margin-left: 5px;
-  margin-right: 0;
-  font-size: 10px;
-  padding-bottom: 1px;
-}
-
-#custom-screenrecording-indicator.active,
-#custom-idle-indicator.active,
-#custom-notification-silencing-indicator.active,
-#custom-voxtype.recording {
-  color: #a55555;
-}
-
-#custom-voxtype {
-  min-width: 12px;
-  margin: 0 0 0 7.5px;
-}
-
-/* Módulos multimedia con colores de Pywal */
-#custom-spotify {
-  margin-left: 15px;
-  margin-right: 15px;
-  padding: 0 5px;
-  color: @color4;
-  font-weight: bold;
-}
-
-#custom-vpn.connected {
-  color: @color2;
-}
-
-#custom-vpn.disconnected {
-  color: @color1;
-  opacity: 0.6;
-}
-
-
-
+#custom-update { font-size: 10px; }
+#clock { color: @color1; }
+#custom-weather { color: @foreground; }
+#custom-weather.unavailable { min-width: 0; margin: 0; padding: 0; border: none; background: transparent; }
+.hidden { opacity: 0; }
+#custom-spotify { color: @color4; font-weight: bold; }
+#custom-vpn.connected { color: @color2; }
+#custom-vpn.disconnected { color: @color1; opacity: 0.6; }
