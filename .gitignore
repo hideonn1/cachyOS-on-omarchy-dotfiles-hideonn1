@@ -7,6 +7,7 @@
 !/.config/fish/
 !/.config/waybar/
 !/.config/hypr/
+!/scripts-system/
 
 # 3. Ignorar explícitamente archivos sensibles dentro de las carpetas permitidas
 # Ejemplo: si tienes un archivo de configuración de red con contraseñas
