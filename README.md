@@ -5,7 +5,7 @@ Mi configuración personal de entorno de trabajo para **Arch Linux / CachyOS**, 
 ## 🛠️ Tecnologías y Herramientas
 * **WM:** Hyprland
 * **Barra:** Waybar (con configuración personalizada y glifos especiales)
-* **Terminal:** [Tu terminal favorita]
+* **Terminal:** kitty + fish
 * **Editor:** Zed (con integración Vim)
 * **Gestión de Red:** `iproute2` y utilidades de seguridad.
 
