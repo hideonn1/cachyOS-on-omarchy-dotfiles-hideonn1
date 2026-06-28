@@ -14,7 +14,6 @@ if [ "$1" = "init" ] && [ -f "$LAST_WAL_IMG" ]; then
     IMAGE=$(cat "$LAST_WAL_IMG")
 else
     # 2. Desplegar Rofi con previsualizaciones si no es el arranque
-    # Generamos la lista enviando el nombre de archivo y la ruta de su icono a Rofi
     SELECTION=$(find "$WALLPAPER_DIR" -type f \( -name "*.jpg" -o -name "*.png" -o -name "*.jpeg" \) | while read -r img; do
         echo -e "$(basename "$img")\0icon\x1f$img"
     done | rofi -dmenu -theme "$ROFI_THEME" -p "Elige tu entorno estético:")
@@ -40,7 +39,8 @@ if [ "$1" = "init" ]; then
 else
     wal -i "$IMAGE" -q
 fi
-# 5. Crear el nuevo CSS dinámico para la PRÓXIMA vez que abras Wofi (por si lo usas en otra cosa)
+
+# 5. Crear el nuevo CSS dinámico para Wofi
 if [ -f "$HOME/.cache/wal/colors.sh" ]; then
     . "$HOME/.cache/wal/colors.sh"
     cat <<EOF > "$WOFI_CSS"
@@ -57,7 +57,71 @@ if [ -f "$HOME/.cache/wal/colors.sh" ]; then
     hyprctl keyword general:col.inactive_border "rgba(${C2#\#}aa)" -q
 fi
 
-# 7. Reiniciar herramientas
+# ==============================================================================
+# 7. Sincronizar Temas de Wofi e inyectar Pywal
+# ==============================================================================
+
+WOFI_DIR="/home/hideon/.config/wofi"
+mkdir -p "$WOFI_DIR"
+
+if [ -f "$HOME/.cache/wal/colors.sh" ]; then
+    . "$HOME/.cache/wal/colors.sh"
+
+    # Escribir el CSS nativo de GTK3 para Wofi
+    cat <<EOF > "$WOFI_DIR/style.css"
+/* Estilos Pywal para Wofi */
+window {
+    margin: 0px;
+    border: 2px solid $color1;
+    border-radius: 12px;
+    background-color: $background;
+    font-family: "JetBrainsMono Nerd Font", monospace;
+    font-size: 14px;
+}
+
+#outer-box {
+    margin: 5px;
+    border: none;
+    background-color: transparent;
+}
+
+#input {
+    margin: 5px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    color: $foreground;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+#inner-box {
+    margin: 5px;
+    border: none;
+    background-color: transparent;
+}
+
+#text {
+    margin: 5px;
+    color: $foreground;
+}
+
+/* Cambiar la barra azul genérica por tu color cobrizo de Pywal */
+#entry:selected {
+    background-color: $color1;
+    border-radius: 6px;
+}
+
+#text:selected {
+    color: $background;
+    font-weight: bold;
+}
+EOF
+fi
+
+# Reiniciar servicios básicos de la barra superior
 killall waybar 2>/dev/null
 nohup waybar > /dev/null 2>&1 &
 [ "$(pgrep -x "cava")" ] && killall -SIGUSR1 cava 2>/dev/null
+
+# Limpieza total de Walker para liberar RAM
+uwsm stop app-walker.service 2>/dev/null || uwsm stop walker 2>/dev/null
+killall -9 walker 2>/dev/null
