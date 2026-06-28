@@ -1,5 +1,9 @@
 # Dotfiles - CachyOS/Arch Linux Setup
 
+<p align="right">
+    <strong>Español</strong> | <a href="./README.en.md">English</a>
+</p>
+
 <p align="center">
     <img src="./assets/banner-principal.png" alt="CachyOS Hyprland Setup" width="900">
 </p>
