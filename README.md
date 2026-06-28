@@ -34,6 +34,7 @@ El script `cambiar_fondo.sh` automatiza la regeneración completa del entorno, a
 <p align="center">
     <img src="./assets/system-spec.png" alt="System Specifications" width="850">
 </p>
+
 ## 🚀 Instalación
 Este repositorio utiliza un **directorio Git bare** para gestionar los archivos de configuración directamente en `$HOME` sin necesidad de enlaces simbólicos.
 
