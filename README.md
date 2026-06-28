@@ -69,3 +69,10 @@ config commit -m "Descripción del cambio"
 # Subir/empujar cambios:
 config push
 ```
+
+## 🌌 Colección de Wallpapers
+
+Los fondos de pantalla utilizados en este entorno (incluyendo el arte de Claire Redfield y las piezas de diseño digital) se actualizan y gestionan externamente para mantener el repositorio ligero. 
+Puedes explorar, visualizar y descargar la colección completa en alta resolución directamente desde mi perfil público:
+
+📌 **[Mi Colección en Wallhaven](https://wallhaven.cc/favorites/2187134)**
